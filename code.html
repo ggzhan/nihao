@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nihao Asiashop</title>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome for Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-red': '#A81817', /* Matched closer to screenshot */
+            'brand-cream': '#FDF9EC',
+            'brand-gold': '#D4AF37',
+            'card-gold': '#D8B869', /* For the card labels */
+            'text-dark': '#1A1A1A'
+          },
+          fontFamily: {
+            sans: ['Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for specific adjustments -->
+<style data-purpose="layout">
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #FDF9EC; /* Global cream background */
+    }
+    
+    /* Hero Overlay Gradient */
+    .hero-overlay {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+    }
+
+    /* Card Icon Box Styling */
+    .card-icon-box {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-brand-cream text-gray-800 min-h-screen flex flex-col">
+<!-- BEGIN: Header -->
+<header class="bg-brand-red text-white py-4 px-4 md:px-6 flex justify-between items-center sticky top-0 z-50 shadow-md">
+<!-- Logo Section -->
+<div class="flex items-center gap-3">
+<!-- Logo Image -->
+<img src="logo.png" alt="Nihao Logo" class="h-12 object-contain"/>
+<div class="flex flex-col">
+<h1 class="font-bold text-xl leading-tight">Nihao</h1>
+<span class="text-xs text-orange-200">Asiashop</span>
+</div>
+</div>
+</header>
+<!-- END: Header -->
+<main class="flex-grow">
+<!-- BEGIN: Hero Section -->
+<!-- Background image is set via inline style as it's dynamic content -->
+<section class="relative w-full h-64 md:h-96 lg:h-[500px] bg-cover bg-center" style="background-image: url('https://neumarkt-oerlikon.ch/wp-content/uploads/2020/03/bild2.jpg');">
+<!-- Dark overlay for text readability -->
+<div class="hero-overlay absolute inset-0"></div>
+<!-- Content positioned at the bottom left -->
+<div class="absolute bottom-0 left-0 w-full p-6 text-white">
+<h2 class="text-3xl font-bold mb-1 leading-tight shadow-sm">Willkommen bei <br/>Nihao Asiashop</h2>
+<p class="text-sm font-light text-gray-100 opacity-90">Authentische Ostasiatisch</p>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: What We Offer Section -->
+<section class="px-5 py-6">
+<h3 class="text-xl font-bold text-text-dark mb-4">Was wir anbieten</h3>
+<!-- Grid Container -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Card 1: Snacks -->
+<div class="rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col h-44 md:h-64 lg:h-80 relative">
+<!-- Icon Overlay -->
+<div class="absolute top-3 left-3 bg-brand-cream w-8 h-8 rounded-lg border border-brand-red flex items-center justify-center card-icon-box z-10">
+<i class="fas fa-cookie-bite text-brand-red text-xs"></i>
+</div>
+<!-- Image -->
+<div class="h-32 md:h-48 lg:h-64 w-full overflow-hidden">
+<img alt="Asian Snacks" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzeM13ubKqaKiF2m8-3vM5PLOTp-3BPI1AgS9FuAGdSQUD13wVJ6MOFILXy-uQLHK_QhiQbRbz8DMMs2h1q1m45bRVERrpGubkVNjJdkDBjBLUscYsd7nRD-h-fU39FquOEh-mZ80l86zpHV8P-7VJfbxvhp-3puyCeMmjn6PmJcySsnhYYaH9fnpKaE1TDn-TESPRWd7qdqOML2xmVMs6IA704EeRuGmm99Jw-6m0-Mn7Uw_3vvKioHiL3rdQcwS3Tt28soqX_cSd"/>
+</div>
+<!-- Label -->
+<div class="bg-card-gold h-12 flex items-center justify-center">
+<span class="text-xs font-bold text-black text-center px-1">Snacks &amp; Süssigkeiten</span>
+</div>
+</div>
+<!-- Card 2: Fresh Produce -->
+<div class="rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col h-44 md:h-64 lg:h-80 relative">
+<!-- Icon Overlay -->
+<div class="absolute top-3 left-3 bg-brand-cream w-8 h-8 rounded-lg border border-brand-red flex items-center justify-center card-icon-box z-10">
+<i class="fas fa-apple-alt text-brand-red text-xs"></i>
+</div>
+<!-- Image -->
+<div class="h-32 md:h-48 lg:h-64 w-full overflow-hidden">
+<img alt="Fresh Produce" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvh5cWDbSYM9DXb5AaElR-UW_isfulQxywvFTHmt04be_ES-GDmPsSBFX3q9zg-rj0jftuX_q2q7iw-mIZK9vaUBejW-BeHpw4iewWEmpoO4CKoH4w0KbTaF4Rsth6xYt8TWa_zLWI8reWze7mtCM0owhybJyUjSP9ZTP3f_yq8mvdxdhNK--clfTszZYDoPkXf11R5k3KjT0PahgmBIeSsmdIss2nOw-nbxlmLpBTIsW9YNggp4LOVSwo0c6_Ww-5j3zqKiX2TvuW"/>
+</div>
+<!-- Label -->
+<div class="bg-card-gold h-12 flex items-center justify-center">
+<span class="text-xs font-bold text-black text-center px-1">Frische Produkte</span>
+</div>
+</div>
+<!-- Card 3: High-Quality Tea -->
+<div class="rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col h-44 md:h-64 lg:h-80 relative">
+<!-- Icon Overlay -->
+<div class="absolute top-3 left-3 bg-brand-cream w-8 h-8 rounded-lg border border-brand-red flex items-center justify-center card-icon-box z-10">
+<i class="fas fa-mug-hot text-brand-red text-xs"></i>
+</div>
+<!-- Image -->
+<div class="h-32 md:h-48 lg:h-64 w-full overflow-hidden">
+<img alt="Tea Set" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQuSpvt_PQWgxyBEJgsaeKv41NHikY3xcqb45qCtKIM6F2NzPtvUosBv1wb4KCwqdr4cFUxOg2KJwgwb5qOVzN37ulXc7N045Pjr0NFAgxi-B358OVFp58TEeQfyEVUsQr6-I6R5opm0Rn1uP97wqJeuPU-ZqipKPNSMeExkf94kLDYxJrqTXDp4dUEyaslrtJ-dTuIijjKIbYDjLEd3fjZxtQsPMnX29rKGAuEMyyDrLBWfWVxOiPAgTbk7rwhY2LA1IjyysYWRfa"/>
+</div>
+<!-- Label -->
+<div class="bg-card-gold h-12 flex items-center justify-center">
+<span class="text-xs font-bold text-black text-center px-1">Grosse Teeauswahl</span>
+</div>
+</div>
+<!-- Card 4: Specialty Goods -->
+<div class="rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col h-44 md:h-64 lg:h-80 relative">
+<!-- Icon Overlay -->
+<div class="absolute top-3 left-3 bg-brand-cream w-8 h-8 rounded-lg border border-brand-red flex items-center justify-center card-icon-box z-10">
+<i class="fas fa-bottle-droplet text-brand-red text-xs"></i>
+</div>
+<!-- Image -->
+<div class="h-32 md:h-48 lg:h-64 w-full overflow-hidden">
+<img alt="Sauces" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwDfBoaEOfGGgBG4iUrmeWsgiOuI56fIStcbaO3_FOqRE_G8KdHlLZWS63klpF093_45f4I9BOOZ-Dfnb3Kz8uWjB8vOqqNkW42edMn7nGG5hzxAfk4pBwufOr5JDJv87VgWPi6H1YsjQyGZaL4Ya-OCRb7EPXWCjGXNSZ_WDgWppncahmOTq3DYTALCjRm5s9TYx4E2jcjc7oacXaCgqt3uLb8W8braWkPvok7ESXQFzAgDGNeBv9AA9Slze3_2Y8AT5VTZDSf2RO"/>
+</div>
+<!-- Label -->
+<div class="bg-card-gold h-12 flex items-center justify-center">
+<span class="text-xs font-bold text-black text-center px-1">Asiatische Spezialitäten</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: What We Offer Section -->
+<!-- BEGIN: About Us Section -->
+<section class="px-5 pb-8">
+<h3 class="text-xl font-bold text-text-dark mb-2">About Us</h3>
+<p class="text-sm text-gray-700 leading-relaxed">
+  Ein Stück Fernost mitten in Oerlikon: der neue Nihao Asiashop im Migros-Gebäude des Neumarkt Oerlikon bietet eine grosse Auswahl an asiatischen Lebensmitteln und Haushaltsartikeln. Das Sortiment reicht von frischem Gemüse, Früchten und Getränken über Saucen und Gewürze bis hin zu Tee-Spezialitäten und veganen Produkten. Der Laden ist modern eingerichtet, übersichtlich gestaltet und bekannt für seine fairen Preise sowie den freundlichen Service. Ein sauberer, gut sortierter Fachmarkt für alle, die authentische Produkte aus Asien schätzen.
+      </p>
+</section>
+<!-- END: About Us Section -->
+</main>
+<!-- BEGIN: Footer / Find Us -->
+<footer class="bg-brand-red text-white rounded-t-3xl pt-6 pb-6 px-5 mt-auto">
+<h3 class="text-xl font-bold mb-4 pl-1">Find Us</h3>
+<!-- Info Container Flex Row -->
+<div class="flex flex-row gap-4 mb-6">
+<!-- Map Container (60% width) -->
+<div class="w-[60%] relative h-32 md:h-48 lg:h-64 rounded-xl overflow-hidden shadow-lg border border-white/20">
+<iframe class="w-full h-full" src="https://maps.google.com/maps?q=Hofwiesenstrasse+350,+8050+Zürich&t=&z=15&ie=UTF8&iwloc=&output=embed" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing Nihao Asiashop location"></iframe>
+</div>
+<!-- Text Details (40% width) -->
+<div class="w-[40%] flex flex-col justify-center space-y-2 text-xs">
+<div class="flex flex-col">
+<span class="opacity-70 text-[10px]">Tel:</span>
+<span class="font-medium">+41 525 68 68</span>
+</div>
+<div class="flex flex-col">
+<span class="opacity-70 text-[10px]">Email:</span>
+<a class="font-medium break-all" href="mailto:info@nihao-asiashop.ch">info@nihao-asiashop.ch</a>
+</div>
+<div class="flex flex-col mt-1">
+<span class="opacity-70 text-[10px]">Öffnungszeiten</span>
+<span class="font-medium">Mon-Sam: 9:00 - 19.00</span>
+<span class="font-medium">Sonntag: Geschlossen</span>
+</div>
+</div>
+</div>
+<!-- Social & Copyright -->
+<div class="border-t border-white/20 pt-4 flex flex-col items-center gap-3">
+<div class="flex gap-6">
+<a class="text-white hover:text-brand-gold transition" href="#"><i class="fab fa-facebook-f text-lg"></i></a>
+<a class="text-white hover:text-brand-gold transition" href="#"><i class="fab fa-instagram text-lg"></i></a>
+<a class="text-white hover:text-brand-gold transition" href="#"><i class="fab fa-linkedin-in text-lg"></i></a>
+<a class="text-white hover:text-brand-gold transition" href="#"><i class="fab fa-youtube text-lg"></i></a>
+</div>
+<p class="text-[10px] opacity-70">© 2022 restaurant-nihao.ch</p>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>
