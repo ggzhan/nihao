@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nihao Asiashop Replica</title>
+<!-- Load Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Load Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<!-- FontAwesome for Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<!-- Configuration for Tailwind -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Roboto"', 'sans-serif'],
+          },
+          colors: {
+            'brand-red': '#8B0000',
+            'brand-yellow': '#DAA520',
+            'brand-green-muted': '#556B2F',
+            'brand-green-olive': '#6B8E23',
+            'footer-red': '#800000',
+            'nav-active': '#991b1b', // Red-800
+            'nav-inactive': '#5f6368',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for specific mockup details -->
+<style data-purpose="custom-layout">
+    /* Hides scrollbar for horizontal scrolling areas but keeps functionality */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    /* Ensuring bottom nav stays fixed */
+    body {
+      padding-bottom: 80px; /* Space for fixed nav */
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-white font-sans text-gray-800">
+<!-- BEGIN: Hero Section -->
+<header class="relative w-full h-[300px] overflow-hidden">
+<!-- Background Image -->
+<img alt="Asian ingredients background" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMDRNDbVUeDy36Z4P3xMdQmk-7hd_6Ts-3bH8P5scSdclsmYtUh2SjZQOrVJ9h7ATwWIgrTLUXFv5U3YLleJzfyLSplmK6xAcVezf8mTwCP3yR5GkMvIsjHUGOEws87Tn-PlZzhRy5ltUmg15I-r8_v0JPDDo51aXFm9pfw7MUioc5u57PsRyriTbyRMlduQNchybzMAihf4bvHXxM4cFb8pFUhpG6VAG9kSBVMNFEc5QJbN12i1l3MKWOLXVdLNxpXKYYQNtjH8Gk"/>
+<!-- Dark Overlay -->
+<div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
+<h1 class="font-serif text-white text-4xl font-bold mb-2 drop-shadow-md">Nihao Asiashop</h1>
+<p class="font-sans text-white text-sm tracking-wide drop-shadow-sm">Authentic Asian Grocery &amp; More. Since 2005.</p>
+</div>
+</header>
+<!-- END: Hero Section -->
+<!-- BEGIN: Product Categories -->
+<section class="py-8 px-2">
+<h2 class="font-serif text-2xl font-bold text-center mb-6">Product Categories</h2>
+<!-- Category Grid: Using flex to match the row layout -->
+<div class="flex flex-row gap-2 justify-center overflow-x-auto no-scrollbar px-1">
+<!-- Category 1: Snacks -->
+<div class="flex-shrink-0 w-20 sm:w-24 h-28 sm:h-32 bg-brand-red rounded-2xl flex flex-col items-center justify-start pt-2 pb-1 shadow-sm">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-white/30 mb-2 bg-white">
+<img alt="Snacks" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAVksbJ8jfLMY7qXSq2ftd5p3PlY7il9FWstNmN63Rd31i_FG9HXwx-lje88nIbo-DVKx6nl3De15-f8Uo1sylpldaxSYGXPvUzcBj3zSOXRtLSLptpOn-totBik8pgLDhVvh8vJgfnOiGtSBhrUBVnuCva3clbocZRHZuEJPhUXlnrBIPblMpjDzBhDqSodJlaiUiZPJVfQ5m4Xh6uoIJCASC7wZfRxeG2sUsQUVpSxD9D8AGBlE_mCZtrO27ECCf85LANrzMMFZs"/>
+</div>
+<span class="text-white text-[10px] sm:text-xs font-medium text-center leading-tight px-1">Snacks &amp;<br/>Sweets</span>
+</div>
+<!-- Category 2: Fresh Products -->
+<div class="flex-shrink-0 w-20 sm:w-24 h-28 sm:h-32 bg-brand-yellow rounded-2xl flex flex-col items-center justify-start pt-2 pb-1 shadow-sm">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-white/30 mb-2 bg-white">
+<img alt="Fresh" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfy0Rcbr8FONb_r_lFg-mCXWbvEmQXL7RPM0H-WrmkxBktCBuFzgg5EPn1ekpzmcEqEB03gOlWq2LlvWOrr0_gFc9f2I4drKTTUiztFH3jdNafoIV9jc9xMyIO3GBFiVotRoPT3KqHP0xEE0_zHpmlIzr9NigwKU-8Mh65AEXpZXlYr3qRuRcn6GpG3k-u2ujE7dsJWL_g06qrzwwQIT8k8uc45H5atsYFiQQw1LIGfsGeSMuSPPMF3WQVcs_oGSFbMU8q1GXVH0Vg"/>
+</div>
+<span class="text-white text-[10px] sm:text-xs font-medium text-center leading-tight px-1">Fresh<br/>Products</span>
+</div>
+<!-- Category 3: Tea Selection -->
+<div class="flex-shrink-0 w-20 sm:w-24 h-28 sm:h-32 bg-brand-green-muted rounded-2xl flex flex-col items-center justify-start pt-2 pb-1 shadow-sm">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-white/30 mb-2 bg-white">
+<img alt="Tea" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsYLoGe7c_O6pAChATfA4k__X9u7cGBgYHeXRtqoDHjrdo1s_CCrg6ZQjzeiqxRWq6utf2JqjK9p_QlHTTB85bl4qvlfXXTJ_6z5USdH2cTJOMsXW0cd58wRYi2NEPxre4GEZ-t1uAFUdZMPVQ787QVsQ8KKTs0s9fgJW4KJEdOAePmUXPmVGm_QSVzdod7Oy7uTRGjQFtkXLEq3QE14llE9Bmubm2Ap6oxacHJBfz3kk8svtDw_4nDLIvMSCMiNUH_BDUZRRt-Nra"/>
+</div>
+<span class="text-white text-[10px] sm:text-xs font-medium text-center leading-tight px-1">Tea<br/>Selection</span>
+</div>
+<!-- Category 4: Asian Specialties -->
+<div class="flex-shrink-0 w-20 sm:w-24 h-28 sm:h-32 bg-brand-green-olive rounded-2xl flex flex-col items-center justify-start pt-2 pb-1 shadow-sm">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-white/30 mb-2 bg-white">
+<img alt="Specialties" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz9fUpxpxbAvxdhnWa9B6Ps9hG-ZX59KIu5pOi_lN2-q7X0VwOtNLg6MfaZHmzWC9RLF-RKIBY2xaDSiFiyB08Bx1IPx0Xni15AzgSyQ4Ew8WXNQUtQ70w_DD6qI-TIBPHqrGztUJ4JOJUqe9_OXnqz17OELXBNj2upAjU2TgCy3jKk1VbFJUs1ObjL6eMTPgB47QqUOrweVQ25L6AZDbxIhi14FSnZloZdeR1EFLXe1LFgKd6f-UhlYdLGstlw3AHgkyxwx1npFgF"/>
+</div>
+<span class="text-white text-[10px] sm:text-xs font-medium text-center leading-tight px-1">Asian<br/>Specialties</span>
+</div>
+</div>
+</section>
+<!-- END: Product Categories -->
+<!-- BEGIN: Product Thumbnail Carousel -->
+<section class="mb-8 px-4">
+<div class="flex items-center justify-center gap-2 sm:gap-4">
+<!-- Left Arrow -->
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 shadow-sm">
+<i class="fa-solid fa-chevron-left text-xs"></i>
+</button>
+<!-- Thumbnails -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar py-2">
+<div class="w-12 h-14 bg-white shadow-md rounded-md p-1 flex items-center justify-center border border-gray-100">
+<img class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAVksbJ8jfLMY7qXSq2ftd5p3PlY7il9FWstNmN63Rd31i_FG9HXwx-lje88nIbo-DVKx6nl3De15-f8Uo1sylpldaxSYGXPvUzcBj3zSOXRtLSLptpOn-totBik8pgLDhVvh8vJgfnOiGtSBhrUBVnuCva3clbocZRHZuEJPhUXlnrBIPblMpjDzBhDqSodJlaiUiZPJVfQ5m4Xh6uoIJCASC7wZfRxeG2sUsQUVpSxD9D8AGBlE_mCZtrO27ECCf85LANrzMMFZs"/>
+</div>
+<div class="w-12 h-14 bg-white shadow-md rounded-md p-1 flex items-center justify-center border border-gray-100">
+<!-- Using placeholder chips image for variety -->
+<img class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfy0Rcbr8FONb_r_lFg-mCXWbvEmQXL7RPM0H-WrmkxBktCBuFzgg5EPn1ekpzmcEqEB03gOlWq2LlvWOrr0_gFc9f2I4drKTTUiztFH3jdNafoIV9jc9xMyIO3GBFiVotRoPT3KqHP0xEE0_zHpmlIzr9NigwKU-8Mh65AEXpZXlYr3qRuRcn6GpG3k-u2ujE7dsJWL_g06qrzwwQIT8k8uc45H5atsYFiQQw1LIGfsGeSMuSPPMF3WQVcs_oGSFbMU8q1GXVH0Vg"/>
+</div>
+<div class="w-12 h-14 bg-white shadow-md rounded-md p-1 flex items-center justify-center border border-gray-100">
+<img class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAVksbJ8jfLMY7qXSq2ftd5p3PlY7il9FWstNmN63Rd31i_FG9HXwx-lje88nIbo-DVKx6nl3De15-f8Uo1sylpldaxSYGXPvUzcBj3zSOXRtLSLptpOn-totBik8pgLDhVvh8vJgfnOiGtSBhrUBVnuCva3clbocZRHZuEJPhUXlnrBIPblMpjDzBhDqSodJlaiUiZPJVfQ5m4Xh6uoIJCASC7wZfRxeG2sUsQUVpSxD9D8AGBlE_mCZtrO27ECCf85LANrzMMFZs"/>
+</div>
+<div class="w-12 h-14 bg-white shadow-md rounded-md p-1 flex items-center justify-center border border-gray-100">
+<!-- Using placeholder snacks image for variety -->
+<img class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfy0Rcbr8FONb_r_lFg-mCXWbvEmQXL7RPM0H-WrmkxBktCBuFzgg5EPn1ekpzmcEqEB03gOlWq2LlvWOrr0_gFc9f2I4drKTTUiztFH3jdNafoIV9jc9xMyIO3GBFiVotRoPT3KqHP0xEE0_zHpmlIzr9NigwKU-8Mh65AEXpZXlYr3qRuRcn6GpG3k-u2ujE7dsJWL_g06qrzwwQIT8k8uc45H5atsYFiQQw1LIGfsGeSMuSPPMF3WQVcs_oGSFbMU8q1GXVH0Vg"/>
+</div>
+<div class="w-12 h-14 bg-white shadow-md rounded-md p-1 flex items-center justify-center border border-gray-100">
+<!-- Using placeholder sauce image for variety -->
+<img class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAVksbJ8jfLMY7qXSq2ftd5p3PlY7il9FWstNmN63Rd31i_FG9HXwx-lje88nIbo-DVKx6nl3De15-f8Uo1sylpldaxSYGXPvUzcBj3zSOXRtLSLptpOn-totBik8pgLDhVvh8vJgfnOiGtSBhrUBVnuCva3clbocZRHZuEJPhUXlnrBIPblMpjDzBhDqSodJlaiUiZPJVfQ5m4Xh6uoIJCASC7wZfRxeG2sUsQUVpSxD9D8AGBlE_mCZtrO27ECCf85LANrzMMFZs"/>
+</div>
+</div>
+<!-- Right Arrow -->
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 shadow-sm">
+<i class="fa-solid fa-chevron-right text-xs"></i>
+</button>
+</div>
+</section>
+<!-- END: Product Thumbnail Carousel -->
+<!-- BEGIN: About Us Section -->
+<section class="px-4 mb-10">
+<h2 class="font-serif text-2xl font-bold text-gray-900 mb-4">About Us</h2>
+<div class="flex flex-row gap-4 items-start">
+<!-- Store Image -->
+<div class="w-5/12">
+<img alt="Store Interior" class="w-full h-32 object-cover rounded-xl shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8hAsDcNB1YGFZlxQKGwe7oEE8uzRZwMwxKGwJ-s58uqiPJUecx1mt8QtK63NB0hP_eo49jc6dGuprSqglnxe8f0_GAzs85JkYJo6mJxSkxBMTAPO6ZDe5LDMm0CG4GOjyZh1GmqS7Vcno_0IjMqnvVdje0-jyxwlY3w8mMpCKH70fC56d6c3JtjKuMlhaslrHMxlpEma4ACPAuzT9N7ZQtW0z6PPmUFEZZapM3EPAEoBuSKme9UUD6-b-GWHa9GOIoF4etSyaXwLk"/>
+</div>
+<!-- About Text -->
+<div class="w-7/12">
+<p class="text-[11px] leading-relaxed text-gray-600 mb-2">
+          We committed to now our carsiditans Nihao Asiashop, quality and culture and only religious order away services of feshion and urtemeascw india.
+        </p>
+<p class="text-[11px] leading-relaxed text-gray-600">
+          We commited our sea shot is rhs proced for speivralica iinn culture and unitomcy, two-heelwaste of combiration on our merencsary to us our qcsliity of the best products, at the nihao Asiashop.
+        </p>
+</div>
+</div>
+</section>
+<!-- END: About Us Section -->
+<!-- BEGIN: Find Us / Footer -->
+<footer class="bg-footer-red text-white pt-8 pb-4 px-4 rounded-t-3xl">
+<h2 class="font-serif text-2xl font-bold text-center mb-6">Find Us</h2>
+<div class="flex flex-row gap-4 justify-between items-start mb-6">
+<!-- Map Image -->
+<div class="w-5/12 relative">
+<div class="bg-white p-1 rounded-lg shadow-lg rotate-[-2deg]">
+<img alt="Map Location" class="w-full h-auto rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-XmtWG8ETsvmHGgUhRMv-VYL-KoRlzGFNooYrm8IDh2YEtVi3TRQPpIFnROAbJKJ01AqYk1Plh8U69F76r5ASV0AyLai99XaTWQUgclxk-wlE_mwGpbbmLQUUM0VtWxEaNDgDhK_1RuocSS8y0Ze2wqrKlQAAnhP5bEj_hRjxa_n8tH4lMRCvwa-dfxhuEXGsf3Nb0-N4djiuzS6Gay4GNUOMDsO1Ws1nl_YPhJnzyp4zBGDDS08tpgpJufO9OwPoJ_uv21Zfb8x3"/>
+<!-- Mock UI Elements on Map -->
+<div class="absolute top-4 left-4 bg-white text-black text-[8px] px-1 rounded shadow">kitseir frrse map..</div>
+</div>
+</div>
+<!-- Contact Info -->
+<div class="w-7/12 text-[10px] sm:text-xs space-y-2">
+<div class="flex items-start gap-2">
+<i class="fa-solid fa-location-dot mt-1 text-white/80 w-3"></i>
+<div>
+<p>1S33 Mountail Avenue Way,</p>
+<p>Konaio, TX 92116</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<i class="fa-solid fa-phone text-white/80 w-3"></i>
+<p>(307) 133-7839</p>
+</div>
+<div class="pt-2">
+<div class="flex items-center gap-2 mb-1">
+<i class="fa-solid fa-clock text-white/80 w-3"></i>
+<p class="font-bold">Opening Hours</p>
+</div>
+<div class="flex justify-between pl-5 pr-2">
+<span>Mon - Sun.</span>
+<span>5AM - 9PM</span>
+</div>
+<div class="flex justify-between pl-5 pr-2">
+<span>Sun - Sun</span>
+<span>5AM - 9PM</span>
+</div>
+</div>
+<!-- Social Media Column -->
+<div class="pt-2">
+<div class="flex items-center gap-2 mb-1">
+<i class="fa-brands fa-facebook-square text-white/80 w-3"></i>
+<span class="font-bold">Social Media</span>
+</div>
+<div class="pl-5 space-y-1 text-white/70">
+<p>Term of Policy</p>
+<p>Privacy Policy</p>
+</div>
+<!-- Icons Row -->
+<div class="flex gap-3 pl-5 mt-2 text-sm">
+<i class="fa-brands fa-facebook-f"></i>
+<i class="fa-brands fa-twitter"></i>
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-youtube"></i>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Find Us / Footer -->
+<!-- BEGIN: Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] h-[70px] flex items-center justify-around z-50">
+<!-- Home Item (Active) -->
+<a class="flex flex-col items-center justify-center w-1/4 h-full text-nav-active" href="#">
+<i class="fa-solid fa-house text-xl mb-1"></i>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<!-- Shop Item -->
+<a class="flex flex-col items-center justify-center w-1/4 h-full text-brand-green-olive hover:text-nav-active transition-colors" href="#">
+<i class="fa-solid fa-store text-xl mb-1"></i>
+<span class="text-[10px] font-medium">Shop</span>
+</a>
+<!-- About Item -->
+<a class="flex flex-col items-center justify-center w-1/4 h-full text-brand-green-olive hover:text-nav-active transition-colors" href="#">
+<i class="fa-solid fa-circle-info text-xl mb-1"></i>
+<span class="text-[10px] font-medium">About</span>
+</a>
+<!-- Contact Item -->
+<a class="flex flex-col items-center justify-center w-1/4 h-full text-brand-green-olive hover:text-nav-active transition-colors" href="#">
+<i class="fa-solid fa-envelope text-xl mb-1"></i>
+<span class="text-[10px] font-medium">Contact</span>
+</a>
+</nav>
+<!-- END: Bottom Navigation Bar -->
+</body></html>
