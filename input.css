@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@source "./index.html";
+
+@theme {
+    --color-brand-red: #A81817;
+    --color-brand-cream: #FDF9EC;
+    --color-brand-gold: #D4AF37;
+    --color-card-gold: #D8B869;
+    --color-text-dark: #1A1A1A;
+
+    --font-sans: "Roboto", sans-serif;
+}
+
+@layer base {
+    body {
+        @apply font-sans bg-brand-cream;
+        min-height: max(884px, 100dvh);
+    }
+}
+
+@layer components {
+
+    /* Hero Overlay Gradient */
+    .hero-overlay {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+    }
+
+    /* Card Icon Box Styling */
+    .card-icon-box {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Modal Styles */
+    #product-modal {
+        transition: opacity 0.3s ease;
+    }
+
+    #product-modal.hidden {
+        display: none;
+        opacity: 0;
+    }
+
+    .modal-content {
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+    }
+
+    #product-modal:not(.hidden) .modal-content {
+        transform: scale(1);
+    }
+
+    /* Category Card Hover */
+    .category-card {
+        transition: all 0.3s ease;
+    }
+
+    .category-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(168, 24, 23, 0.1), 0 4px 6px -2px rgba(168, 24, 23, 0.05);
+    }
+}
