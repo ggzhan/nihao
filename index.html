@@ -109,6 +109,31 @@
     .card-icon-box {
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
+    /* Modal Styles */
+    #product-modal {
+      transition: opacity 0.3s ease;
+    }
+    #product-modal.hidden {
+      display: none;
+      opacity: 0;
+    }
+    .modal-content {
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+    #product-modal:not(.hidden) .modal-content {
+      transform: scale(1);
+    }
+    
+    /* Category Card Hover */
+    .category-card {
+      transition: all 0.3s ease;
+    }
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(168, 24, 23, 0.1), 0 4px 6px -2px rgba(168, 24, 23, 0.05);
+    }
   </style>
 <style>
     body {
@@ -166,6 +191,9 @@
 • Pilzen<br/>
 <span class="font-bold">und vieles mehr</span>
 </p>
+<button onclick="openGallery('Frische Produkte')" class="mt-4 w-full py-2 px-4 bg-brand-red text-white rounded-xl text-xs font-bold hover:bg-brand-red/90 transition flex items-center justify-center gap-2">
+  <i class="fas fa-camera"></i> Auswahl ansehen
+</button>
 </div>
 </div>
 <!-- Card 2: Asiatische Convenience Food -->
@@ -188,6 +216,9 @@
 • Mochi glace<br/>
 <span class="font-bold">und vieles mehr</span>
 </p>
+<button onclick="openGallery('Convenience Food')" class="mt-4 w-full py-2 px-4 bg-brand-red text-white rounded-xl text-xs font-bold hover:bg-brand-red/90 transition flex items-center justify-center gap-2">
+  <i class="fas fa-camera"></i> Auswahl ansehen
+</button>
 </div>
 </div>
 <!-- Card 3: Snacks + Süsses -->
@@ -212,6 +243,9 @@
 • Seaweed Snacks<br/>
 <span class="font-bold">und vieles mehr</span>
 </p>
+<button onclick="openGallery('Snacks')" class="mt-4 w-full py-2 px-4 bg-brand-red text-white rounded-xl text-xs font-bold hover:bg-brand-red/90 transition flex items-center justify-center gap-2">
+  <i class="fas fa-camera"></i> Auswahl ansehen
+</button>
 </div>
 </div>
 <!-- Card 4: Getränke -->
@@ -230,6 +264,9 @@
 • <span class="font-medium">Grosse Auswahl von alkoholfreien Getränken</span><br/>
 <span class="font-bold">und vieles mehr</span>
 </p>
+<button onclick="openGallery('Getränke')" class="mt-4 w-full py-2 px-4 bg-brand-red text-white rounded-xl text-xs font-bold hover:bg-brand-red/90 transition flex items-center justify-center gap-2">
+  <i class="fas fa-camera"></i> Auswahl ansehen
+</button>
 </div>
 </div>
 <!-- Card 5: Gewürzen -->
@@ -250,6 +287,9 @@
 • Chilli sauce, Dashi pulver<br/>
 <span class="font-bold">und vieles mehr</span>
 </p>
+<button onclick="openGallery('Gewürze')" class="mt-4 w-full py-2 px-4 bg-brand-red text-white rounded-xl text-xs font-bold hover:bg-brand-red/90 transition flex items-center justify-center gap-2">
+  <i class="fas fa-camera"></i> Auswahl ansehen
+</button>
 </div>
 </div>
 <!-- Card 6: Ramen -->
@@ -271,6 +311,9 @@
 • Instantnudeln<br/>
 <span class="font-bold">und vieles mehr</span>
 </p>
+<button onclick="openGallery('Ramen')" class="mt-4 w-full py-2 px-4 bg-brand-red text-white rounded-xl text-xs font-bold hover:bg-brand-red/90 transition flex items-center justify-center gap-2">
+  <i class="fas fa-camera"></i> Auswahl ansehen
+</button>
 </div>
 </div>
 <!-- Card 7: Trocken Zutaten und Beilagen -->
@@ -291,6 +334,9 @@
 • Getrocknete Chilli, Chilli Pulver<br/>
 <span class="font-bold">und vieles mehr</span>
 </p>
+<button onclick="openGallery('Trocken Zutaten und Beilagen')" class="mt-4 w-full py-2 px-4 bg-brand-red text-white rounded-xl text-xs font-bold hover:bg-brand-red/90 transition flex items-center justify-center gap-2">
+  <i class="fas fa-camera"></i> Auswahl ansehen
+</button>
 </div>
 </div>
 <!-- Card 8: Tee -->
@@ -311,6 +357,9 @@
 • Matcha, Hojicha<br/>
 <span class="font-bold">und vieles mehr</span>
 </p>
+<button onclick="openGallery('Tee')" class="mt-4 w-full py-2 px-4 bg-brand-red text-white rounded-xl text-xs font-bold hover:bg-brand-red/90 transition flex items-center justify-center gap-2">
+  <i class="fas fa-camera"></i> Auswahl ansehen
+</button>
 </div>
 </div>
 <!-- Card 9: Nonfood -->
@@ -328,6 +377,9 @@
 • Tee Zubehör<br/>
 <span class="font-bold">und vieles mehr</span>
 </p>
+<button onclick="openGallery('Geschirr und Zubehör')" class="mt-4 w-full py-2 px-4 bg-brand-red text-white rounded-xl text-xs font-bold hover:bg-brand-red/90 transition flex items-center justify-center gap-2">
+  <i class="fas fa-camera"></i> Auswahl ansehen
+</button>
 </div>
 </div>
 </div>
@@ -397,4 +449,118 @@
 </div>
 </footer>
 <!-- END: Footer -->
+
+<!-- BEGIN: Product Photo Modal -->
+<div id="product-modal" class="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-4 hidden" onclick="closeGallery()">
+  <div class="modal-content relative bg-brand-cream w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-hidden flex flex-col shadow-2xl" onclick="event.stopPropagation()">
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-white">
+          <div>
+              <h2 id="modal-title" class="text-2xl font-bold text-text-dark">Produkte</h2>
+              <p class="text-xs text-gray-500 mt-1">Stöbern Sie in unserem aktuellen Sortiment</p>
+          </div>
+          <button onclick="closeGallery()" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-800 hover:bg-gray-200 transition">
+              <i class="fas fa-times"></i>
+          </button>
+      </div>
+      
+      <!-- Modal Body (Grid) -->
+      <div id="modal-grid" class="p-6 overflow-y-auto grid grid-cols-2 md:grid-cols-3 gap-4 flex-grow bg-brand-cream/50">
+          <!-- Images will be injected here -->
+      </div>
+      
+      <!-- Modal Footer -->
+      <div class="p-4 bg-white border-t border-gray-100 text-center">
+          <p class="text-[10px] text-gray-400 uppercase tracking-widest font-medium">Bilder dienen der Veranschaulichung • Verfügbarkeit im Laden variiert</p>
+      </div>
+  </div>
+</div>
+<!-- END: Product Photo Modal -->
+
+<script>
+  const productData = {
+    "Frische Produkte": [
+      "mushrooms-napa-cabbage-1.jpeg", "napa-cabbage-bok-choy-2.jpeg", "tofu-fresh-vegetables-3.jpeg",
+      "napa-cabbage-mushrooms-4.jpeg", "bok-choy-mushrooms-5.jpeg", "bok-choy-ginger-root-6.jpeg"
+    ],
+    "Convenience Food": ["spring-rolls-bao-buns-1.jpeg"],
+    "Snacks": [
+      "shrimp-chips-pocky-sticks-1.jpeg", "seaweed-snack-rice-crackers-2.jpeg", "wasabi-peas-rice-crackers-3.jpeg",
+      "shrimp-chips-seaweed-snack-4.jpeg", "mochi-sweets-wasabi-peas-5.jpeg", "seaweed-snack-rice-crackers-6.jpeg",
+      "wasabi-peas-shrimp-chips-7.jpeg", "pocky-sticks-seaweed-snack-8.jpeg", "mochi-sweets-shrimp-chips-9.jpeg"
+    ],
+    "Getränke": [
+      "soy-milk-oolong-tea-1.jpeg", "oolong-tea-soy-milk-2.jpeg", "ramune-soda-sake-bottle-3.jpeg",
+      "ramune-soda-matcha-drink-4.jpeg", "matcha-drink-sake-bottle-5.jpeg"
+    ],
+    "Gewürze": [
+      "chili-oil-oyster-sauce-1.jpeg", "soy-sauce-miso-paste-2.jpeg", "gochujang-chili-oil-3.jpeg",
+      "soy-sauce-miso-paste-4.jpeg", "sesame-oil-oyster-sauce-5.jpeg", "chili-oil-soy-sauce-6.jpeg"
+    ],
+    "Ramen": [
+      "miso-ramen-dried-noodles-1.jpeg", "shin-ramyun-instant-noodles-2.jpeg", "spicy-ramen-cup-noodles-3.jpeg",
+      "miso-ramen-spicy-ramen-4.jpeg", "shin-ramyun-spicy-ramen-5.jpeg", "shin-ramyun-instant-noodles-6.jpeg"
+    ],
+    "Trocken Zutaten und Beilagen": [
+      "dried-shiitake-star-anise-1.jpeg", "dried-shiitake-dried-shrimp-2.jpeg", "star-anise-seaweed-nori-3.jpeg",
+      "seaweed-nori-dried-shrimp-4.jpeg", "dried-shiitake-black-beans-5.jpeg", "dried-shiitake-dried-shrimp-6.jpeg"
+    ],
+    "Tee": [
+      "tea-bags-pu-erh-1.jpeg", "herbal-infusion-green-tea-2.jpeg", "green-tea-herbal-infusion-3.jpeg",
+      "jasmine-tea-green-tea-4.jpeg"
+    ],
+    "Geschirr und Zubehör": [
+      "tea-set-cooking-utensils-1.jpeg", "chopsticks-cooking-utensils-2.jpeg", "cooking-utensils-bento-box-3.jpeg",
+      "chopsticks-ceramic-plate-4.jpeg", "chopsticks-bento-box-5.jpeg"
+    ],
+    "Laden": [
+      "interior-grocery-aisle-1.jpeg", "shelves-grocery-aisle-2.jpeg", "shelves-interior-3.jpeg",
+      "shelves-store-front-4.jpeg", "interior-shelves-5.jpeg"
+    ]
+  };
+
+  const modal = document.getElementById('product-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalGrid = document.getElementById('modal-grid');
+
+  function openGallery(category) {
+    if (!productData[category]) return;
+
+    modalTitle.innerText = category;
+    modalGrid.innerHTML = '';
+    
+    productData[category].forEach(img => {
+      const card = document.createElement('div');
+      card.className = "bg-white p-2 rounded-2xl shadow-sm border border-gray-100 group cursor-pointer overflow-hidden";
+      
+      // Clean up filename for display name
+      const displayName = img.split('-').slice(0, -1).join(' ').replace(/\.[^/.]+$/, "");
+      
+      card.innerHTML = `
+        <div class="relative overflow-hidden rounded-xl aspect-square bg-gray-50 mb-2">
+            <img src="Nihao_fotos/${category}/${img}" 
+                 alt="${displayName}" 
+                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                 loading="lazy">
+        </div>
+        <p class="text-[10px] text-gray-600 font-medium capitalize text-center truncate px-1">${displayName}</p>
+      `;
+      modalGrid.appendChild(card);
+    });
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGallery() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeGallery();
+    }
+  });
+</script>
 </body></html>
