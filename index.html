@@ -472,16 +472,19 @@
   <!-- END: Product Photo Modal -->
 
   <!-- BEGIN: Lightbox Modal (Full Screen View) -->
-  <div id="lightbox-modal" class="fixed inset-0 z-[70] flex items-center justify-center bg-black/95 p-4 hidden"
+  <div id="lightbox-modal"
+    class="fixed inset-0 z-[70] flex items-center justify-center bg-black/95 p-4 hidden cursor-zoom-out"
     onclick="closeLightbox()">
     <!-- Close Button -->
     <button onclick="closeLightbox()"
-      class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition z-[71]">
+      class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition z-[71] cursor-pointer"
+      title="Schliessen (Esc)">
       <i class="fas fa-times text-2xl"></i>
     </button>
     <!-- Enlarged Image -->
     <img id="lightbox-img" src="" alt=""
-      class="max-w-full max-h-full object-contain shadow-2xl transition-all duration-300 scale-95 opacity-0">
+      class="max-w-full max-h-full object-contain shadow-2xl transition-all duration-300 scale-95 opacity-0 cursor-default"
+      onclick="event.stopPropagation()">
   </div>
   <!-- END: Lightbox Modal -->
 
