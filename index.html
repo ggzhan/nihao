@@ -471,6 +471,20 @@
   </div>
   <!-- END: Product Photo Modal -->
 
+  <!-- BEGIN: Lightbox Modal (Full Screen View) -->
+  <div id="lightbox-modal" class="fixed inset-0 z-[70] flex items-center justify-center bg-black/95 p-4 hidden"
+    onclick="closeLightbox()">
+    <!-- Close Button -->
+    <button onclick="closeLightbox()"
+      class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition z-[71]">
+      <i class="fas fa-times text-2xl"></i>
+    </button>
+    <!-- Enlarged Image -->
+    <img id="lightbox-img" src="" alt=""
+      class="max-w-full max-h-full object-contain shadow-2xl transition-all duration-300 scale-95 opacity-0">
+  </div>
+  <!-- END: Lightbox Modal -->
+
   <script>
     const productData = {
       "Frische Produkte": [
@@ -521,6 +535,8 @@
     const modal = document.getElementById('product-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalGrid = document.getElementById('modal-grid');
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
 
     function openGallery(category) {
       if (!productData[category]) return;
@@ -534,21 +550,52 @@
 
         // Clean up filename for display name
         const displayName = img.split('-').slice(0, -1).join(' ').replace(/\.[^/.]+$/, "");
+        const imgSrc = `Nihao_fotos/${category}/${img}`;
 
         card.innerHTML = `
         <div class="relative overflow-hidden rounded-xl aspect-square bg-gray-50 mb-2">
-            <img src="Nihao_fotos/${category}/${img}" 
+            <img src="${imgSrc}" 
                  alt="${displayName}" 
                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
                  loading="lazy">
         </div>
         <p class="text-[10px] text-gray-600 font-medium capitalize text-center truncate px-1">${displayName}</p>
       `;
+
+        // Click to open lightbox
+        card.onclick = () => openLightbox(imgSrc, displayName);
+
         modalGrid.appendChild(card);
       });
 
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+    }
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightboxModal.classList.remove('hidden');
+
+      // Animate in
+      setTimeout(() => {
+        lightboxImg.classList.remove('scale-95', 'opacity-0');
+        lightboxImg.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    function closeLightbox() {
+      // Animate out
+      lightboxImg.classList.add('scale-95', 'opacity-0');
+      lightboxImg.classList.remove('scale-100', 'opacity-100');
+
+      setTimeout(() => {
+        lightboxModal.classList.add('hidden');
+        // Only restore scroll if both modals are closed
+        if (modal.classList.contains('hidden')) {
+          document.body.style.overflow = 'auto';
+        }
+      }, 300);
     }
 
     function closeGallery() {
@@ -557,8 +604,12 @@
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-        closeGallery();
+      if (e.key === 'Escape') {
+        if (!lightboxModal.classList.contains('hidden')) {
+          closeLightbox();
+        } else if (!modal.classList.contains('hidden')) {
+          closeGallery();
+        }
       }
     });
   </script>
