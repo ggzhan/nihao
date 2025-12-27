@@ -553,6 +553,12 @@
     function openGallery(category) {
       if (!productData[category]) return;
 
+      // Track modal open event
+      gtag('event', 'select_item', {
+        item_list_name: category,
+        content_type: 'product_category'
+      });
+
       modalTitle.innerText = category;
       modalGrid.innerHTML = '';
 
@@ -585,6 +591,12 @@
     }
 
     function openLightbox(src, alt) {
+      // Track image view event
+      gtag('event', 'view_item', {
+        item_name: alt,
+        content_type: 'product_image'
+      });
+
       lightboxImg.src = src;
       lightboxImg.alt = alt;
       lightboxModal.classList.remove('hidden');
@@ -597,6 +609,9 @@
     }
 
     function closeLightbox() {
+      // Track lightbox close event
+      gtag('event', 'close_modal', { modal_name: 'lightbox' });
+
       // Animate out
       lightboxImg.classList.add('scale-95', 'opacity-0');
       lightboxImg.classList.remove('scale-100', 'opacity-100');
@@ -611,6 +626,9 @@
     }
 
     function closeGallery() {
+      // Track gallery close event
+      gtag('event', 'close_modal', { modal_name: 'product_gallery' });
+
       modal.classList.add('hidden');
       document.body.style.overflow = 'auto';
     }
