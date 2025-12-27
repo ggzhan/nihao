@@ -553,10 +553,10 @@
     function openGallery(category) {
       if (!productData[category]) return;
 
-      // Track modal open event
-      gtag('event', 'select_item', {
+      // Track category view event
+      gtag('event', 'view_item_list', {
         item_list_name: category,
-        content_type: 'product_category'
+        item_list_id: category.toLowerCase().replace(/\s+/g, '_')
       });
 
       modalTitle.innerText = category;
