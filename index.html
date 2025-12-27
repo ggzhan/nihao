@@ -566,18 +566,18 @@
         const card = document.createElement('div');
         card.className = "bg-white p-2 rounded-2xl shadow-sm border border-gray-100 group cursor-pointer overflow-hidden";
 
-        // Extract filename for display (e.g. image.jpg)
-        const displayName = img.substring(img.lastIndexOf('/') + 1);
+        // Extract filename and remove category prefix (e.g. frische-mushrooms.jpg -> mushrooms.jpg)
+        const fullFilename = img.substring(img.lastIndexOf('/') + 1);
+        const displayName = fullFilename.includes('-') ? fullFilename.substring(fullFilename.indexOf('-') + 1) : fullFilename;
         const imgSrc = img.startsWith('http') ? img : `https://res.cloudinary.com/dqerisvh2/image/upload/f_auto,q_auto/${img}.jpg`;
 
         card.innerHTML = `
-        <div class="relative overflow-hidden rounded-xl aspect-square bg-gray-50 mb-2">
+        <div class="relative overflow-hidden rounded-xl aspect-square bg-gray-50">
             <img src="${imgSrc}" 
                  alt="${displayName}" 
                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
                  loading="lazy">
         </div>
-        <p class="text-[10px] text-gray-600 font-medium capitalize text-center truncate px-1">${displayName}</p>
       `;
 
         // Click to open lightbox
