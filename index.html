@@ -566,8 +566,8 @@
         const card = document.createElement('div');
         card.className = "bg-white p-2 rounded-2xl shadow-sm border border-gray-100 group cursor-pointer overflow-hidden";
 
-        // Clean up filename for display name
-        const displayName = img.split('-').slice(0, -1).join(' ').replace(/\.[^/.]+$/, "");
+        // Extract filename for display (e.g. image.jpg)
+        const displayName = img.substring(img.lastIndexOf('/') + 1);
         const imgSrc = img.startsWith('http') ? img : `https://res.cloudinary.com/dqerisvh2/image/upload/f_auto,q_auto/${img}.jpg`;
 
         card.innerHTML = `
