@@ -490,6 +490,18 @@
       title="Schliessen (Esc)">
       <i class="fas fa-times text-2xl"></i>
     </button>
+    <!-- Navigation Buttons -->
+    <button onclick="prevImage()"
+      class="absolute left-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition z-[71] cursor-pointer"
+      title="Vorheriges Bild (ArrowLeft)">
+      <i class="fas fa-chevron-left text-2xl"></i>
+    </button>
+    <button onclick="nextImage()"
+      class="absolute right-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition z-[71] cursor-pointer"
+      title="Nächstes Bild (ArrowRight)">
+      <i class="fas fa-chevron-right text-2xl"></i>
+    </button>
+
     <!-- Enlarged Image -->
     <img id="lightbox-img" src="" alt=""
       class="max-w-full max-h-full object-contain shadow-2xl transition-all duration-300 scale-95 opacity-0 cursor-default"
@@ -550,6 +562,9 @@
     const lightboxModal = document.getElementById('lightbox-modal');
     const lightboxImg = document.getElementById('lightbox-img');
 
+    let currentCategory = '';
+    let currentImageIndex = 0;
+
     function openGallery(category) {
       if (!productData[category]) return;
 
@@ -570,7 +585,7 @@
       modalTitle.innerText = category;
       modalGrid.innerHTML = '';
 
-      productData[category].forEach(img => {
+      productData[category].forEach((img, index) => {
         const card = document.createElement('div');
         card.className = "bg-white p-2 rounded-2xl shadow-sm border border-gray-100 group cursor-pointer overflow-hidden";
 
@@ -589,7 +604,7 @@
       `;
 
         // Click to open lightbox
-        card.onclick = () => openLightbox(imgSrc, displayName);
+        card.onclick = () => openLightbox(category, index);
 
         modalGrid.appendChild(card);
       });
@@ -598,15 +613,11 @@
       document.body.style.overflow = 'hidden';
     }
 
-    function openLightbox(src, alt) {
-      // Track image view event
-      gtag('event', 'view_item', {
-        item_name: alt,
-        content_type: 'product_image'
-      });
+    function openLightbox(category, index) {
+      currentCategory = category;
+      currentImageIndex = index;
+      updateLightboxImage();
 
-      lightboxImg.src = src;
-      lightboxImg.alt = alt;
       lightboxModal.classList.remove('hidden');
 
       // Animate in
@@ -614,6 +625,32 @@
         lightboxImg.classList.remove('scale-95', 'opacity-0');
         lightboxImg.classList.add('scale-100', 'opacity-100');
       }, 10);
+    }
+
+    function updateLightboxImage() {
+      const img = productData[currentCategory][currentImageIndex];
+      const fullFilename = img.substring(img.lastIndexOf('/') + 1);
+      const displayName = fullFilename.includes('-') ? fullFilename.substring(fullFilename.indexOf('-') + 1) : fullFilename;
+      const imgSrc = img.startsWith('http') ? img : `https://res.cloudinary.com/dqerisvh2/image/upload/f_auto,q_auto/${img}.jpg`;
+
+      // Track image view event
+      gtag('event', 'view_item', {
+        item_name: displayName,
+        content_type: 'product_image'
+      });
+
+      lightboxImg.src = imgSrc;
+      lightboxImg.alt = displayName;
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % productData[currentCategory].length;
+      updateLightboxImage();
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + productData[currentCategory].length) % productData[currentCategory].length;
+      updateLightboxImage();
     }
 
     function closeLightbox() {
@@ -654,6 +691,14 @@
           closeLightbox();
         } else if (!modal.classList.contains('hidden')) {
           closeGallery();
+        }
+      } else if (e.key === 'ArrowRight') {
+        if (!lightboxModal.classList.contains('hidden')) {
+          nextImage();
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (!lightboxModal.classList.contains('hidden')) {
+          prevImage();
         }
       }
     });
