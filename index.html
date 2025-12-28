@@ -553,10 +553,18 @@
     function openGallery(category) {
       if (!productData[category]) return;
 
-      // Track category view event
-      gtag('event', 'view_item_list', {
-        item_list_name: category,
-        item_list_id: category.toLowerCase().replace(/\s+/g, '_')
+      // Track manual page view for SPA (Gallery View)
+      const categorySlug = category.toLowerCase().replace(/\s+/g, '_');
+      gtag('event', 'page_view', {
+        page_title: category + ' Gallery | Nihao Asia Shop',
+        page_path: '/gallery/' + categorySlug,
+        page_location: window.location.origin + '/gallery/' + categorySlug
+      });
+
+      // Keep standard event for content-specific tracking
+      gtag('event', 'select_content', {
+        content_type: 'gallery_category',
+        item_id: category
       });
 
       modalTitle.innerText = category;
@@ -626,6 +634,13 @@
     }
 
     function closeGallery() {
+      // Reset page view to home for SPA tracking
+      gtag('event', 'page_view', {
+        page_title: 'Nihao Asia Shop | Asiatische Lebensmittel in Zürich Oerlikon am Bahnhof',
+        page_path: '/',
+        page_location: window.location.origin + '/'
+      });
+
       // Track gallery close event
       gtag('event', 'close_modal', { modal_name: 'product_gallery' });
 
