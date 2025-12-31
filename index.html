@@ -13,6 +13,22 @@
     gtag('config', 'G-XTJPR3ZD89');
     gtag('config', 'AW-17824718531');
   </script>
+  <!-- Event snippet for Get directions conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17824718531/W8w9CNTyuNobEMO9vrNC',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Nihao Asia Shop | Asiatische Lebensmittel in Zürich Oerlikon am Bahnhof</title>
@@ -482,7 +498,7 @@
           <a href="https://www.google.com/maps/dir/?api=1&destination=Hofwiesenstrasse+350,+8050+Zürich" 
              target="_blank" 
              rel="noopener noreferrer"
-             onclick="gtag('event', 'conversion', {'send_to': 'AW-17824718531/P8zlCO23uNobEMO9vrNC'});"
+             onclick="gtag_report_conversion(); return true;"
              class="mt-2 ml-4 inline-flex items-center gap-1 text-xs font-medium text-brand-gold hover:text-white transition-colors">
             <i class="fas fa-directions text-xs"></i>
             Route planen
