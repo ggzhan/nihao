@@ -18,13 +18,13 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <script>
     function gtag_report_conversion(url) {
       var callback = function () {
-        if (typeof(url) != 'undefined') {
+        if (typeof (url) != 'undefined') {
           window.location = url;
         }
       };
       gtag('event', 'conversion', {
-          'send_to': 'AW-17824718531/W8w9CNTyuNobEMO9vrNC',
-          'event_callback': callback
+        'send_to': 'AW-17824718531/W8w9CNTyuNobEMO9vrNC',
+        'event_callback': callback
       });
       return false;
     }
@@ -223,11 +223,98 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       </div>
     </section>
     <!-- END: Hero Section -->
+
+    <!-- BEGIN: Aktion Section -->
+    <section class="px-5 py-6 md:py-10 bg-brand-cream flex justify-center">
+      <div class="w-full max-w-4xl">
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-brand-red/10 group hover:shadow-xl transition-all duration-500 mx-auto">
+          <div class="flex flex-col lg:flex-row items-stretch">
+            <!-- Image Side -->
+            <div class="w-full lg:w-1/2 relative bg-gray-50 flex items-center justify-center p-6 overflow-hidden">
+              <!-- Decorative background circle -->
+              <div class="absolute inset-0 bg-brand-red/5 rounded-full scale-125 -translate-x-1/4 translate-y-1/4"></div>
+              
+              <img src="Kimchi_Aktion.jpeg" alt="Jongga Premium Kimchi"
+                class="relative z-10 w-full h-auto max-h-[280px] object-contain transform group-hover:scale-105 transition-transform duration-500">
+              
+              <!-- Promo Badge -->
+              <div class="absolute top-4 left-4 z-20">
+                <div class="bg-brand-red text-white text-xs font-bold w-14 h-14 rounded-full shadow-lg transform -rotate-12 uppercase tracking-tight flex items-center justify-center text-center leading-none">
+                  AKTION!
+                </div>
+              </div>
+            </div>
+
+            <!-- Content Side -->
+            <div class="w-full lg:w-1/2 p-6 lg:p-8 flex flex-col justify-center items-center text-center bg-white">
+              <div class="mb-1">
+                <span class="text-brand-red font-bold text-xs tracking-widest uppercase">Nur bis 2. Februar</span>
+              </div>
+              <h2 class="text-2xl lg:text-3xl font-black text-text-dark mb-2 leading-tight">
+                Jongga Premium Kimchi
+              </h2>
+              <p class="text-gray-600 text-xs lg:text-sm leading-relaxed mb-6 italic border-l-0 lg:border-l-0 pl-0">
+                "Authentisches koreanisches Kimchi aus geschnittenem Chinakohl. <br class="hidden md:block"/>Traditionell fermentiert für den perfekten Geschmack."
+              </p>
+              
+              <!-- Price Section -->
+              <div class="flex flex-col items-center gap-2 mb-6">
+                <span class="text-gray-400 text-[10px] font-bold uppercase">Statt CHF 7.90</span>
+                <div class="flex items-center gap-3">
+                  <div class="bg-brand-red text-white px-4 py-1.5 rounded-xl shadow-md">
+                    <span class="text-2xl lg:text-3xl font-black">nur CHF 2.90</span>
+                  </div>
+                  <span class="bg-brand-gold/10 text-brand-gold font-bold px-2 py-0.5 rounded-lg text-xs">
+                    -63% Rabatt
+                  </span>
+                </div>
+              </div>
+
+              <!-- Bullet Points -->
+              <div class="grid grid-cols-2 gap-y-2 gap-x-4 mb-8 w-full max-w-md mx-auto">
+                <div class="flex items-center justify-center gap-2 text-[11px] font-medium text-gray-700">
+                  <div class="w-4 h-4 rounded-full bg-brand-red/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-check text-[8px] text-brand-red"></i>
+                  </div>
+                  <span>500g Packung</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 text-[11px] font-medium text-gray-700">
+                  <div class="w-4 h-4 rounded-full bg-brand-red/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-check text-[8px] text-brand-red"></i>
+                  </div>
+                  <span>Original aus Korea</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 text-[11px] font-medium text-gray-700">
+                  <div class="w-4 h-4 rounded-full bg-brand-red/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-check text-[8px] text-brand-red"></i>
+                  </div>
+                  <span>Zusatzstofffrei</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 text-[11px] font-medium text-gray-700">
+                  <div class="w-4 h-4 rounded-full bg-brand-red/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-check text-[8px] text-brand-red"></i>
+                  </div>
+                  <span>Vegan Friendly</span>
+                </div>
+              </div>
+
+              <a href="#find-us" onclick="gtag('event', 'click_promotion', { promotion_name: 'Kimchi Aktion' });"
+                class="w-full max-w-sm inline-flex items-center justify-center gap-2 bg-text-dark text-white px-6 py-3 rounded-xl font-bold text-base hover:bg-brand-red transition-all duration-300 shadow-lg hover:shadow-xl group/btn">
+                <i class="fas fa-location-dot group-hover/btn:animate-bounce text-sm"></i>
+                Jetzt im Laden sichern
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Aktion Section -->
+
     <!-- BEGIN: What We Offer Section -->
-    <section class="px-5 py-6">
-      <h3 class="text-xl font-bold text-text-dark mb-4">Was wir anbieten</h3>
+    <section class="px-5 py-8 md:py-12 max-w-6xl mx-auto">
+      <h3 class="text-2xl lg:text-3xl font-black text-text-dark mb-8 text-center">Was wir anbieten</h3>
       <!-- Grid Container -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Card 1: Frische Produkte -->
         <div class="rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col">
           <div class="p-4 pb-3 flex items-center gap-3 border-b border-gray-100">
@@ -460,21 +547,23 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <!-- END: What We Offer Section -->
     <!-- BEGIN: About Us Section -->
     <section class="px-5 pb-8">
-      <h2 class="text-xl font-bold text-text-dark mb-2">Ihr Asia Shop in Zürich Oerlikon</h2>
-      <p class="text-sm text-gray-700 leading-relaxed">
-        Ein Stück Fernost direkt am <strong>Bahnhof Oerlikon</strong>: Der Nihao Asia Shop im Migros-Gebäude des
-        Neumarkt Oerlikon bietet Ihnen eine exklusive Auswahl an authentischen asiatischen Lebensmitteln und
-        Haushaltsartikeln. Nur wenige Gehminuten vom Bahnhof entfernt, finden Sie bei uns in Zürich alles von frischem
-        Gemüse und exotischen Früchten bis hin zu traditionellen Saucen, Gewürzen und veganen Produkten. Als moderner
-        Fachmarkt in Oerlikon stehen wir für Qualität und Vielfalt direkt in Zürich.
-        Parkplätze hat es in der grossen Parkgarage Neumarkt Oerlikon reichlich. Der Lift führt direkt zum Eingang vom Nihao Asia Shop.
-      </p>
+        <h2 class="text-xl font-bold text-text-dark mb-2">Ihr Asia Shop in Zürich Oerlikon</h2>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          Ein Stück Fernost direkt am <strong>Bahnhof Oerlikon</strong>: Der Nihao Asia Shop im Migros-Gebäude des
+          Neumarkt Oerlikon bietet Ihnen eine exklusive Auswahl an authentischen asiatischen Lebensmitteln und
+          Haushaltsartikeln. Nur wenige Gehminuten vom Bahnhof entfernt, finden Sie bei uns in Zürich alles von frischem
+          Gemüse und exotischen Früchten bis hin zu traditionellen Saucen, Gewürzen und veganen Produkten. Als moderner
+          Fachmarkt in Oerlikon stehen wir für Qualität und Vielfalt direkt in Zürich.
+          Parkplätze hat es in der grossen Parkgarage Neumarkt Oerlikon reichlich. Der Lift führt direkt zum Eingang vom
+          Nihao Asia Shop.
+        </p>
     </section>
     <!-- END: About Us Section -->
   </main>
   <!-- BEGIN: Footer / Find Us -->
   <footer class="bg-brand-red text-white rounded-t-3xl pt-6 pb-6 px-5 mt-auto">
-    <h3 class="text-xl font-bold mb-4 pl-1">Find Us</h3>
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-xl font-bold mb-4 pl-1">Wo wir sind</h3>
     <!-- Info Container Flex Row -->
     <div class="flex flex-col lg:flex-row gap-4 mb-6">
       <!-- Map Container -->
@@ -495,11 +584,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           <span class="font-medium ml-4">Hofwiesenstrasse 350, 8050 Zürich</span>
           <span class="text-[10px] opacity-80 mt-1 ml-4">Im Neumarkt Oerlikon — nur 2 Gehminuten vom Bahnhof
             Oerlikon</span>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Hofwiesenstrasse+350,+8050+Zürich" 
-             target="_blank" 
-             rel="noopener noreferrer"
-             onclick="gtag_report_conversion(); return true;"
-             class="mt-2 ml-4 inline-flex items-center gap-1 text-xs font-medium text-brand-gold hover:text-white transition-colors">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Hofwiesenstrasse+350,+8050+Zürich" target="_blank"
+            rel="noopener noreferrer" onclick="gtag_report_conversion(); return true;"
+            class="mt-2 ml-4 inline-flex items-center gap-1 text-xs font-medium text-brand-gold hover:text-white transition-colors">
             <i class="fas fa-directions text-xs"></i>
             Route planen
           </a>
@@ -802,56 +889,71 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       }
     });
   </script>
+
   <!-- Hidden FAQ Section for AI Crawlers and SEO -->
-  <section class="sr-only" aria-hidden="true" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+  <section class="sr-only" aria-hidden="true"
+    style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
     <h2>Häufig gestellte Fragen (FAQ) - Nihao Asia Shop</h2>
     <div itemscope itemtype="https://schema.org/FAQPage">
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 itemprop="name">Wo befindet sich der Nihao Asia Shop?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Der Nihao Asia Shop befindet sich in der Hofwiesenstrasse 350, 8050 Zürich, im zweiten Stock vom Einkaufszentrum Neumarkt Oerlikon. Wir sind nur 2 Gehminuten vom Bahnhof Zürich Oerlikon entfernt.</p>
+          <p itemprop="text">Der Nihao Asia Shop befindet sich in der Hofwiesenstrasse 350, 8050 Zürich, im zweiten
+            Stock vom Einkaufszentrum Neumarkt Oerlikon. Wir sind nur 2 Gehminuten vom Bahnhof Zürich Oerlikon entfernt.
+          </p>
         </div>
       </div>
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 itemprop="name">Welche Öffnungszeiten hat der Nihao Asia Shop?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Wir sind von Montag bis Samstag von 9:00 bis 19:00 Uhr geöffnet. Sonntags haben wir geschlossen.</p>
+          <p itemprop="text">Wir sind von Montag bis Samstag von 9:00 bis 19:00 Uhr geöffnet. Sonntags haben wir
+            geschlossen.</p>
         </div>
       </div>
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 itemprop="name">Welche Produkte bietet der Nihao Asia Shop an?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Wir bieten eine grosse Auswahl an asiatischen Lebensmitteln: Frische Produkte (Kräuter, Gemüse, exotische Früchte, Tofu), Convenience Food (Dim Sum, Dumplings, Gyoza), Snacks und Süsses, Getränke (Bier, Sake, alkoholfreie Getränke), Gewürze, über 100 Sorten Ramen, Trockenzutaten, die grösste Teeauswahl eines Asia Shops in der Schweiz, und Nonfood-Artikel wie Geschirr und Stäbchen.</p>
+          <p itemprop="text">Wir bieten eine grosse Auswahl an asiatischen Lebensmitteln: Frische Produkte (Kräuter,
+            Gemüse, exotische Früchte, Tofu), Convenience Food (Dim Sum, Dumplings, Gyoza), Snacks und Süsses, Getränke
+            (Bier, Sake, alkoholfreie Getränke), Gewürze, über 100 Sorten Ramen, Trockenzutaten, die grösste Teeauswahl
+            eines Asia Shops in der Schweiz, und Nonfood-Artikel wie Geschirr und Stäbchen.</p>
         </div>
       </div>
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 itemprop="name">Hat der Nihao Asia Shop vegane Produkte?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Ja, wir führen eine grosse Auswahl an veganen Produkten, einschliesslich Tofu (8-12 Sorten), veganen Convenience Food, und vielen anderen pflanzlichen asiatischen Spezialitäten.</p>
+          <p itemprop="text">Ja, wir führen eine grosse Auswahl an veganen Produkten, einschliesslich Tofu (8-12
+            Sorten), veganen Convenience Food, und vielen anderen pflanzlichen asiatischen Spezialitäten.</p>
         </div>
       </div>
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 itemprop="name">Wie kann ich den Nihao Asia Shop kontaktieren?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Sie können uns telefonisch unter +41 525 68 68 erreichen oder uns eine E-Mail an info@nihao-asiashop.ch senden.</p>
+          <p itemprop="text">Sie können uns telefonisch unter +41 525 68 68 erreichen oder uns eine E-Mail an
+            info@nihao-asiashop.ch senden.</p>
         </div>
       </div>
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 itemprop="name">Ist der Nihao Asia Shop mit öffentlichen Verkehrsmitteln erreichbar?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Ja, der Shop ist sehr gut mit öffentlichen Verkehrsmitteln erreichbar. Wir befinden uns nur 2 Gehminuten vom Bahnhof Zürich Oerlikon entfernt, der von S-Bahnen, Trams und Bussen bedient wird.</p>
+          <p itemprop="text">Ja, der Shop ist sehr gut mit öffentlichen Verkehrsmitteln erreichbar. Wir befinden uns nur
+            2 Gehminuten vom Bahnhof Zürich Oerlikon entfernt, der von S-Bahnen, Trams und Bussen bedient wird.</p>
         </div>
       </div>
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 itemprop="name">Welche Teesorten führt der Nihao Asia Shop?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Wir haben die grösste Teeauswahl eines Asia Shops in der Schweiz mit Jasmin, Oolong, Weissem Tee, Kräuter- und Früchtetees, Grünem und Schwarzem Tee, Matcha, Hojicha und vielen weiteren Sorten.</p>
+          <p itemprop="text">Wir haben die grösste Teeauswahl eines Asia Shops in der Schweiz mit Jasmin, Oolong,
+            Weissem Tee, Kräuter- und Früchtetees, Grünem und Schwarzem Tee, Matcha, Hojicha und vielen weiteren Sorten.
+          </p>
         </div>
       </div>
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 itemprop="name">Gibt es Parkplätze in der Nähe des Nihao Asia Shop?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Im Einkaufszentrum Oerlikon hat es eine grosse Parkgarage wo genügend Parkplätze verfügbar sind. Man kommt direkt mit dem Lift vom Parkgarage zum Eingang des Asia Shops. Zusätzlich ist der Standort sehr gut mit öffentlichen Verkehrsmitteln erreichbar.</p>
+          <p itemprop="text">Im Einkaufszentrum Oerlikon hat es eine grosse Parkgarage wo genügend Parkplätze verfügbar
+            sind. Man kommt direkt mit dem Lift vom Parkgarage zum Eingang des Asia Shops. Zusätzlich ist der Standort
+            sehr gut mit öffentlichen Verkehrsmitteln erreichbar.</p>
         </div>
       </div>
     </div>
