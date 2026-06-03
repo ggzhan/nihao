@@ -561,7 +561,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <!-- END: About Us Section -->
   </main>
   <!-- BEGIN: Footer / Find Us -->
-  <footer class="bg-brand-red text-white rounded-t-3xl pt-6 pb-6 px-5 mt-auto">
+  <footer id="find-us" class="bg-brand-red text-white rounded-t-3xl pt-6 pb-6 px-5 mt-auto">
     <div class="max-w-6xl mx-auto">
       <h3 class="text-xl font-bold mb-4 pl-1">Wo wir sind</h3>
     <!-- Info Container Flex Row -->
@@ -633,6 +633,25 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   </footer>
   <!-- END: Footer -->
 
+  <!-- BEGIN: Jubiläum Welcome Modal (shown on every visit / refresh; poster from jubilaeum-1.ppm) -->
+  <div id="jubilaeum-modal"
+    class="fixed inset-0 z-[95] flex items-center justify-center bg-black/75 p-3 sm:p-4 hidden"
+    role="dialog" aria-modal="true" aria-labelledby="jubilaeum-modal-title" onclick="closeJubilaeumModal()">
+    <div
+      class="jubilaeum-modal-content relative w-full max-w-md max-h-[95vh] rounded-2xl shadow-2xl overflow-hidden bg-black"
+      onclick="event.stopPropagation()">
+      <button type="button" onclick="closeJubilaeumModal()"
+        class="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-brand-red text-white flex items-center justify-center hover:bg-brand-red/90 transition shadow-lg"
+        aria-label="Schliessen">
+        <i class="fas fa-times text-lg"></i>
+      </button>
+      <img id="jubilaeum-modal-title" src="jubilaeum-1.webp" width="900" height="1273"
+        alt="Nihao Asia Shop feiert 1-jähriges Jubiläum. Geschenk bei jedem Einkauf vom 15.6. bis 20.6.2026."
+        class="w-full h-auto max-h-[95vh] object-contain" />
+    </div>
+  </div>
+  <!-- END: Jubiläum Welcome Modal -->
+
   <!-- BEGIN: Product Photo Modal -->
   <div id="product-modal" class="fixed inset-0 z-[80] flex items-center justify-center bg-black/80 p-4 hidden"
     onclick="closeGallery()">
@@ -696,6 +715,31 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <!-- END: Lightbox Modal -->
 
   <script>
+    const jubilaeumModal = document.getElementById('jubilaeum-modal');
+
+    function openJubilaeumModal() {
+      if (!jubilaeumModal) return;
+      jubilaeumModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      gtag('event', 'view_promotion', { promotion_name: '1-jähriges Jubiläum' });
+    }
+
+    function closeJubilaeumModal() {
+      if (!jubilaeumModal || jubilaeumModal.classList.contains('hidden')) return;
+      gtag('event', 'close_modal', { modal_name: 'jubilaeum' });
+      jubilaeumModal.classList.add('hidden');
+      const productModal = document.getElementById('product-modal');
+      const lightboxModal = document.getElementById('lightbox-modal');
+      if (
+        (!productModal || productModal.classList.contains('hidden')) &&
+        (!lightboxModal || lightboxModal.classList.contains('hidden'))
+      ) {
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', openJubilaeumModal);
+
     const productData = {
       "Frische Produkte": [
         "https://res.cloudinary.com/dqerisvh2/image/upload/v1766361692/frische-mushrooms-napa-cabbage-1_jruscj.jpg", "https://res.cloudinary.com/dqerisvh2/image/upload/v1766361692/frische-napa-cabbage-bok-choy-2_jvbmey.jpg", "https://res.cloudinary.com/dqerisvh2/image/upload/v1766361692/frische-tofu-fresh-vegetables-3_dmkxig.jpg",
@@ -797,6 +841,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      if (jubilaeumModal && !jubilaeumModal.classList.contains('hidden')) {
+        closeJubilaeumModal();
+      }
     }
 
     function openLightbox(category, index) {
@@ -849,8 +896,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
       setTimeout(() => {
         lightboxModal.classList.add('hidden');
-        // Only restore scroll if both modals are closed
-        if (modal.classList.contains('hidden')) {
+        if (
+          modal.classList.contains('hidden') &&
+          (!jubilaeumModal || jubilaeumModal.classList.contains('hidden'))
+        ) {
           document.body.style.overflow = 'auto';
         }
       }, 300);
@@ -868,12 +917,16 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       gtag('event', 'close_modal', { modal_name: 'product_gallery' });
 
       modal.classList.add('hidden');
-      document.body.style.overflow = 'auto';
+      if (!jubilaeumModal || jubilaeumModal.classList.contains('hidden')) {
+        document.body.style.overflow = 'auto';
+      }
     }
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (!lightboxModal.classList.contains('hidden')) {
+        if (jubilaeumModal && !jubilaeumModal.classList.contains('hidden')) {
+          closeJubilaeumModal();
+        } else if (!lightboxModal.classList.contains('hidden')) {
           closeLightbox();
         } else if (!modal.classList.contains('hidden')) {
           closeGallery();

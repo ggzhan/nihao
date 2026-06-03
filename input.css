@@ -50,6 +50,25 @@
         transform: scale(1);
     }
 
+    /* Jubiläum welcome modal */
+    #jubilaeum-modal {
+        transition: opacity 0.3s ease;
+    }
+
+    #jubilaeum-modal.hidden {
+        display: none;
+        opacity: 0;
+    }
+
+    .jubilaeum-modal-content {
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+    }
+
+    #jubilaeum-modal:not(.hidden) .jubilaeum-modal-content {
+        transform: scale(1);
+    }
+
     /* Category Card Hover */
     .category-card {
         transition: all 0.3s ease;
