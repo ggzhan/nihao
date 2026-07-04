@@ -1,6 +1,6 @@
 # Nihao Asia Shop - Website
 
-Das ist die offizielle statische Website für den **Nihao Asia Shop** in Zürich Oerlikon. Die Seite ist für SEO optimiert, responsive gestaltet und nutzt Tailwind CSS für das Design.
+Dies ist die offizielle statische Website für den **Nihao Asia Shop** in Zürich Oerlikon. Die Seite ist für SEO optimiert, responsive gestaltet und nutzt Tailwind CSS für das Design.
 
 ## Voraussetzungen
 
